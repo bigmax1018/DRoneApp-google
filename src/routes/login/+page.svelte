@@ -10,9 +10,7 @@
     import { user } from '$lib/user';
 	import { invalidateAll } from '$app/navigation';
 	import { addIdea, deleteIdea } from '$lib/ideas.js';
-	import { onMount } from 'svelte';
 	import { account, databases } from '$lib/appwrite';
-	import { Query } from 'appwrite';
 
 	// import {  } from '$lib/users';
 	
