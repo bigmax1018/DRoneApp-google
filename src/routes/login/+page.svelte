@@ -10,7 +10,9 @@
     import { user } from '$lib/user';
 	import { invalidateAll } from '$app/navigation';
 	import { addIdea, deleteIdea } from '$lib/ideas.js';
+	import { onMount } from 'svelte';
 	import { account, databases } from '$lib/appwrite';
+	import { Query } from 'appwrite';
 
 	// import {  } from '$lib/users';
 	
@@ -55,6 +57,67 @@
 		// console.log("facebook");
 	}
 
+	// onMount(async () => {
+	// 	google.accounts.id.initialize({
+	// 		client_id: clientId,
+	// 		callback: handleCredentialResponse,
+	// 	});
+	// 	google.accounts.id.renderButton(
+	// 		document.getElementById('buttonDiv'),
+	// 		{
+	// 			theme: 'outline', // You can set the theme to 'outline' or 'filled'
+	// 			// size: 'large',    // You can set the size to 'small', 'medium', or 'large'
+	// 			text: 'Sign With Google',   // You can set the text to 'signin' or 'continue'
+	// 			shape: 'rectangular', // You can set the shape to 'rectangular' or 'pill'
+	// 			width: '150px',    // You can set the width in pixels
+	// 			height: '50px',     // You can set the height in pixels
+	// 		}
+	// 	);
+		
+	// 	google.accounts.id.prompt();
+	// });
+
+	// const handleCredentialResponse = async (response) => {
+
+	// 	const responsePayload = decodeJwtResponse(response.credential);
+	// 	console.log(responsePayload);
+
+	// 	console.log("ID: " + responsePayload.sub);
+	// 	console.log('Full Name: ' + responsePayload.name);
+	// 	console.log('Given Name: ' + responsePayload.given_name);
+	// 	console.log('Family Name: ' + responsePayload.family_name);
+	// 	console.log("Image URL: " + responsePayload.picture);
+	// 	console.log("Email: " + responsePayload.email);
+	// 	const email = responsePayload.email;
+	// 	const name = responsePayload.name;
+	// 	const avatar = responsePayload.picture;
+	// 	// const userData = await databases.listDocuments(
+	// 	// 	IDEAS_DATABASE_ID, 
+	// 	// 	IDEAS_COLLECTION_ID,
+	// 	// 	[Query.equal("email", email)]
+	// 	// );
+	// 	try {
+	// 		// Call Appwrite's OAuth login method with the provider 'google'
+	// 		const response = await account.createOAuth2Session('google');
+	// 		console.log(response);
+	// 		// Redirect to the Google OAuth page
+	// 		// window.location.href = '/'; // Update with your route
+	// 	} catch (error) {
+	// 		console.error('Google login error:', error);
+	// 	}
+		
+	// }
+	
+	// function decodeJwtResponse(token) 
+	// {
+	// 	  let base64Url = token.split('.')[1]
+	// 	  let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+	// 	  let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+	// 		  return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+	// 	  }).join(''));
+	// 	  return JSON.parse(jsonPayload)
+	// }
+
 </script>
 	
 
@@ -76,7 +139,7 @@
 	<img class="mx-auto" style="margin-top:4vh;" src="../assets/img/logo.png" alt="noPik"></a>
 	<div class="container" style="margin-top:7vh;">
 		<i id="account" class="fas fa-users"></i><br>
-		<label class="login-tab">Login / Register</label>
+		<label class="login-tab">Login / Regist</label>
 		<form on:submit={login}>
 			<input type="email" name="email" id="email" class="input-text" placeholder="email" required>
 			<input type="password" class="input-text" placeholder="Password" name="password" required minlength="8" /><br>
