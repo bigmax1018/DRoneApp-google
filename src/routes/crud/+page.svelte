@@ -9,8 +9,8 @@
     import { storage } from '$lib/appwrite';
 
 
-const IDEAS_DATABASE_ID = '657b49cacd1c8614126e'; // Our database ID
-const IDEAS_COLLECTION_ID = '657fcef2687665e7a16d'; // Our collection ID
+const IDEAS_DATABASE_ID = '65869eefc6dd2e5c0917'; // Our database ID
+const IDEAS_COLLECTION_ID = '65869f0837396bb017de'; // Our collection ID
 
 let user_data = writable();
 
@@ -63,8 +63,8 @@ const uploadFile = async () => {
         const file = document.getElementById('uploader').files[0];
         if(user_data.total != 0){
             if (file) {
-            const fileData = await storage.createFile('65807159b43b5d85812f', ID.unique(), file);
-            const imageUrl = await storage.getFilePreview('65807159b43b5d85812f', fileData.$id);
+            const fileData = await storage.createFile('65869debdfc84bdec4a1', ID.unique(), file);
+            const imageUrl = await storage.getFilePreview('65869debdfc84bdec4a1', fileData.$id);
             console.log(imageUrl.toString());
             await img_url_update(user_data.documents[0].$id, $user.$id, imageUrl.toString());   }
         }else{

@@ -32,7 +32,9 @@ const createUser = () => {
 
 	async function logout() {
 		await account.deleteSession('current');
-		store.set(null);	}
+		store.set(null);	
+		goto('/');
+	}
 
 	async function googleLogin() {
 		try {

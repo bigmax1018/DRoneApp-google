@@ -1,8 +1,18 @@
+<script>
+	import { user } from '$lib/user.js';
+
+</script>
+
 <div class="page page-home">
 
 	<!-- Page Content -->
 	<div class="page-content content-area pt-40 pb-0">
-		
+		<div>
+			{#if $user}
+			<span style="font-size: 24px;" class="text-green-400 mr-4">Hey, {$user.name}</span>
+			<button style="background-color:blueviolet; width: auto; color: white; font-size: 20px;" type="button" on:click={user.logout}>Logout</button>
+			{/if}
+		</div>
 		<!-- Search backdrop -->
 		<div class="searchbar-backdrop"></div>
 		<div class="container">
@@ -261,7 +271,7 @@
 					<li class="col-100 medium-50">
 						<div class="item-bx item-list">
 							<div class="dz-media">
-								<a href="/item-details/"><img src="img/products/product1a.jpg" alt=""/></a>
+								<a href="/item-details/"><img src="../assets/img/products/product1a.jpg" alt=""/></a>
 								<div class="rating"><i class="fa fa-star"></i> 3.8</div>
 							</div>
 							<div class="dz-info">
@@ -280,7 +290,7 @@
 					<li class="col-100 medium-50">
 						<div class="item-bx item-list">
 							<div class="dz-media">
-								<a href="/item-details/"><img src="img/products/product2a.jpg" alt=""/></a>
+								<a href="/item-details/"><img src="../assets/img/products/product2a.jpg" alt=""/></a>
 								<div class="rating"><i class="fa fa-star"></i> 3.8</div>
 							</div>
 							<div class="dz-info">

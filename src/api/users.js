@@ -2,7 +2,7 @@ import  {  sdk  }  from  '../appwrite';
 import { ID, Query } from 'appwrite';
 
 const COLLECTION_ID = '64c20b45925315c6f23c';
-const BUCKET_ID = '64c522fcaf17f4d8f2ce';
+const BUCKET_ID = '65869debdfc84bdec4a1';
 
 export const createFile = async () => {
     const res = await sdk.storage.createFile(
