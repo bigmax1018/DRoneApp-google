@@ -27,7 +27,7 @@ const createUser = () => {
 		if (!isBrowser) return;
 		await account.createEmailSession(email, password);
 		await init();
-		goto('/'); 		}	 // Redirect to home page after login
+		goto('/dashboard'); 		}	 // Redirect to home page after login
 
 
 	async function logout() {
